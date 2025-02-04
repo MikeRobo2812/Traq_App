@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,5 +8,12 @@ import { Component } from '@angular/core';
   styleUrl: './persons.component.css'
 })
 export class PersonsComponent {
+  persons: [] | any;
 
+  constructor(private http: HttpClient) {
+    http.get('MyApi/Persons/GetAllPersons')
+      .subscribe(response => {
+            this.persons = response;
+      })
+  }
 }
