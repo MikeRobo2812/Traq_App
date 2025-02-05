@@ -18,4 +18,5 @@ export class PersonService {
   DeletePerson(personId: any){
     return this.http.delete('MyApi/Person/DeletePerson', personId);
   }
+
 }

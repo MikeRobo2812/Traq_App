@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { PersonService } from '../Services/persons.service';
+import { RouterModule, Router } from '@angular/router';
 
 @Component({
   selector: 'app-persons',
@@ -17,11 +18,15 @@ export class PersonsComponent {
   editingPerson: any = null;
   newPerson = {id: null, surname: '', accountNumber: ''};
 
-  constructor(private http: HttpClient, private personService: PersonService) {
+  constructor(private http: HttpClient, private personService: PersonService, private router: Router) {
     http.get('MyApi/Persons/GetAllPersons')
       .subscribe(response => {
             this.persons = response;
       })
+  }
+
+  goToPersonDetails(customerId: number) {
+    this.router.navigate(['/person', customerId]);
   }
 
   get filteredPersons() {

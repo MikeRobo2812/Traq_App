@@ -39,13 +39,13 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let person of filteredPersons">
+        <tr *ngFor="let person of filteredPersons" (click)="goToPersonDetails(person.id)" style="cursor: pointer;">
           <td>{{ person.id }}</td>
           <td>{{ person.surname }}</td>
           <td>{{ person.accountNumber }}</td>
           <td>
-            <button class="btn btn-primary btn-sm me-2" (click)="editPerson(person)">Edit</button>
-            <button class="btn btn-danger btn-sm" (click)="deletePerson(person.id)">Delete</button>
+            <button class="btn btn-primary btn-sm me-2" (click)="editPerson(person); $event.stopPropagation();">Edit</button>
+            <button class="btn btn-danger btn-sm" (click)="deletePerson(person.id); $event.stopPropagation();">Delete</button>
           </td>
         </tr>
       </tbody>
