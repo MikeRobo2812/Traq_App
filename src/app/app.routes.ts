@@ -8,10 +8,12 @@ import { LoginComponent } from './login/login.component';
 import { PersonDetailsComponent } from './person-details/person-details.component';
 import { PersonsComponent } from './persons/persons.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { AccountDetailsComponent } from './account-details/account-details.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
-  {path: 'personDetails/:id', component: PersonDetailsComponent},
+  { path: 'personDetails/:id', component: PersonDetailsComponent},
+  { path: 'account-details/:id', component: AccountDetailsComponent},
   { path: 'home', component:  HomeComponent},
   { path: 'about', component: AboutComponent },
   { path: 'contact', component: ContactComponent },

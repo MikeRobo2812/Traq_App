@@ -7,6 +7,10 @@ export class PersonService {
     
   }
 
+  GetPersonDetails(personId: any){
+    return this.http.get('/MyApi/Person/GetPerson', personId);
+  }
+
   CreatePerson(credentials: any) { 
     return this.http.put('/MyApI/Person/CreatePerson', JSON.stringify(credentials));
   }

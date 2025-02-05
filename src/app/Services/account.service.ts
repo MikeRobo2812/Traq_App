@@ -11,4 +11,16 @@ export class AccountService {
     return this.http.get('/MyApi/Account/GetPersonAccounts', personId)
   }
 
+  CreateAccount(details: any){
+    return this.http.put('/MyApi/Account/CreateAccount', JSON.stringify(details));
+  }
+
+  UpdateAccount(details: any){
+    return this.http.put('/MyApi/Account/UpdateAccount', JSON.stringify(details));
+  }
+
+  GetAccountDetails(accountNumber: any){
+    return this.http.get('/MyApi/Account/GetAccountDetials', accountNumber);
+  }
+
 }
